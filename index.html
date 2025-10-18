@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class="navbar">
+        <h1>M Haimovitch Restoration
+        </h1>
+        <nav class="dropmenu">
+            <li><a href="Projects">About</a></li>
+            <li><a href="Projects">Projects</a></li>
+            <li><a href="Mentorship">Mentorship</a></li>
+            <li><a href="#ahu">Contact</a></li>
+        </nav>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <div class="afterheader">
+        <img src="images/home/C1.png" alt="">
+        <div class="overlay-text">
+            <h2>Welcome!</h2>
+            <p>Let’s turn plans into reality</p>
+            <a href="#contact" class="cta-btn">Book Appointment</a>
+        </div>
+    </div>
+    <main>
+        <div class="featured">
+            <h1 class="outline1">FEATURED PROJECTS</h1>
+            <div class="articles">
+                <a class="navigate" href="#">
+                    <article class="profile">
+                        <img src="/images/home/proj001/sample.png" alt="poject1">
+                        <h2>PROJ001</h2>
+                        <p class="paragraph">5907 W Ginard Ave, Philadelphia, PA 19151</p>
+                    </article>
+                </a>
+                <a class="navigate" href="#">
+                    <article class="profile">
+                        <img src="/images/home/proj001/sample.png" alt="poject1">
+                        <h2>PROJ002</h2>
+                        <p class="paragraph">5907 W Ginard Ave, Philadelphia, PA 19151</p>
+                    </article>
+                </a>
+                <a class="navigate" href="#">
+                    <article class="profile">
+                        <img src="/images/home/proj001/sample.png" alt="poject1">
+                        <h2>PROJ003</h2>
+                        <p class="paragraph">5907 W Ginard Ave, Philadelphia, PA 19151</p>
+                    </article>
+                </a>
+                <a class="navigate" href="#">
+                    <article class="profile">
+                        <img src="/images/home/proj001/sample.png" alt="poject1">
+                        <h2>PROJ004</h2>
+                        <p class="paragraph">5907 W Ginard Ave, Philadelphia, PA 19151</p>
+                    </article>
+                </a>
+            </div> 
+        </div>
+        <div>
+            <h2></h2>
+            <br><br><br><br> <br><br><br><br> <br><br><br><br> <br><br><br><br>
+        
+        </div>   
+    </main>
+    <footer>
+        <div>
+            <p>&copy; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const toggleIcon = document.querySelector('.toggle-btn i');
+        const dropMenu = document.querySelector('.dropmenu');
+
+        toggleBtn.onclick = function () {
+        dropMenu.classList.toggle('open');
+        const isOpen = dropMenu.classList.contains('open');
+
+        toggleIcon.className = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars';
+        }
+    </script>
+</body>
+</html>

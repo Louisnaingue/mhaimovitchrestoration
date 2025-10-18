@@ -1,0 +1,313 @@
+/* Make the body fill the entire viewport */
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+ 
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background-color: #ffa300;
+    color: aliceblue;
+    font-family: "Roboto", serif;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 80px;
+    border-bottom: 4px solid #ffffff;
+    position: absolute;   /* header stays at top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;     /* make sure header is above image */
+}
+/* Hide toggle button by default */
+.toggle-btn {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1;                /* ensures consistent vertical alignment */
+}
+.afterheader {
+    margin-top: 80px;  /* push image below fixed header */
+    padding: 0;
+}
+
+.afterheader img {
+    width: 100%;
+    height: 800px;
+    display: block;
+}
+/* Text on top of image */
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background-color: rgba(0,0,0,0.4); /* semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 100%; /* prevents text from going too wide */
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.overlay-text h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 4vw, 2.5rem); /* scales between 1.5rem and 2.5rem */
+}
+
+.overlay-text p {
+    margin: 5px 0 0 0;
+    font-size: clamp(1rem, 2.5vw, 1.2rem); /* scales between 1rem and 1.2rem */
+}
+/* Call-to-action button */
+.cta-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 30px;
+    background-color: #ffa300;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-family: "Roboto", serif;
+}
+
+.cta-btn:hover {
+    background-color: rgba(10, 131, 60, 0.3); 
+    backdrop-filter: blur(15px);
+    font-weight: bolder;
+}
+
+/* Main content takes up the remaining 80% */
+main {
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Footer takes 20% of the page height */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}nav a {
+    text-align: center;
+    text-decoration: none;
+}
+
+nav li {
+    list-style: none;
+}
+
+.dropmenu {
+    margin-top: 30px;
+    margin-bottom: 0;
+    margin-right: 30px;
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+.dropmenu li {
+    font-size: large;
+}
+
+.dropmenu a {
+    padding: 10px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+}
+
+.dropmenu a:hover {
+    text-decoration: none; /* ✅ remove default underline */
+    color: #060606;
+    border-bottom: 3px solid #060606; /* ✅ single line under the nav */
+}
+/*Atriclces*/
+.articles {
+    padding: 0;
+    margin-top: 0;
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+.profile{
+    width: 200px;
+    margin: 5px;
+    padding: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fffdf9;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+}
+.outline1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    padding: 0;
+}
+.navigate {
+    text-decoration: none;
+    color: rgb(23, 22, 22);
+    text-align: center;
+
+}
+
+@media screen and (max-width: 1000px) {
+    .navbar .links {
+        display: flex;
+        gap: 2rem;
+    }
+    .toggle-btn {
+        display: block;
+    }
+    .navbar .toggle-btn {
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    header {
+        background-color: #ffa300;
+        color: aliceblue;
+        font-family: "Roboto", serif;
+        display: flex;                 /* places h1 and button side by side */
+        align-items: center;           /* vertically align them */
+        justify-content: space-between;/* puts h1 on left, button on right */
+        padding: 0 20px;
+        height: 60px;                  /* example fixed header height */
+    }
+    h1 {
+        font-size: large;
+    }   
+    .afterheader {
+        margin-top: 60px;  /* push image below fixed header */
+    }
+    
+    .afterheader img {
+        width: 100%;
+        height: 70%;
+        display: block;
+    } 
+    .overlay-text {
+        padding: 15px;
+    }
+    .overlay-text {
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        text-align: center;
+        background-color: rgba(0,0,0,0.4); /* semi-transparent background */
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 90%; /* prevents text from going too wide */
+    }
+
+    .overlay-text h2 {
+        margin: 0;
+        font-size: 20px;
+    }
+    .overlay-text p {
+        margin: 5px 0 0 0;
+        font-size: 15px;
+    }.cta-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 8px 30px;
+        background-color: #ffa300;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+        font-family: "Roboto", serif;
+        font-size: small;
+    }
+
+    
+    .dropmenu {
+        display: none;
+        position: fixed;
+        right: 0;
+        top: 50px;
+        width: 150px;
+        background-color: rgba(255, 255, 255, 0.3); 
+        backdrop-filter: blur(15px);
+        overflow: hidden;
+        transition: height 0.3s ease;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    /* When open */
+    .dropmenu.open {
+        display: block;
+        height: 130px;
+    }
+    
+    /* Menu items */
+    .dropmenu li {
+        padding: 5px;
+        display: flex;
+    }
+    .dropmenu ul {
+        padding: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;       
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        font-family: sans-serif;
+        font-size: small;
+    }
+    .dropmenu a:hover {
+        background-color: rgb(223, 172, 19); /* change background color on hover */
+        color: white;                       /* change text color on hover */
+        transform: scale(1.05);             /* slightly enlarge the box */
+        transition: all 0.3s ease;          /* smooth animation */
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* add shadow */
+    }
+
+    .dropmenu a {
+        color: rgb(0, 0, 0); border: 1px solid black;    /* box border */
+        background-color: #ffffff;  /* light background */
+        color: rgb(12, 12, 12);               /* text color */
+        padding: 1px;              /* space inside the box */
+        margin: 0;              /* space between boxes */ 
+        width: 180px;
+        box-shadow: 2px 1px;
+        border-radius: 5px;  
+    }
+}
