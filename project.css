@@ -1,12 +1,8 @@
-/* Make the body fill the entire viewport */
-body {
-    background-color: rgb(255, 255, 255);
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    box-sizing: border-box;
 }
-
 header {
     background-color: #ffa300;
     color: aliceblue;
@@ -34,81 +30,6 @@ h1 {
     font-size: 2rem;
     line-height: 1;                /* ensures consistent vertical alignment */
 }
-.afterheader {
-    margin-top: 80px;  /* push image below fixed header */
-    padding: 0;
-}
-
-.afterheader img {
-    width: 100%;
-    height: 800px;
-    display: block;
-}
-/* Text on top of image */
-.overlay-text {
-    position: absolute;
-    top: 50%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    background-color: rgba(0,0,0,0.4); /* semi-transparent background */
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 100%; /* prevents text from going too wide */
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
-.overlay-text h2 {
-    margin: 0;
-    font-size: clamp(1.5rem, 4vw, 2.5rem); /* scales between 1.5rem and 2.5rem */
-}
-
-.overlay-text p {
-    margin: 5px 0 0 0;
-    font-size: clamp(1rem, 2.5vw, 1.2rem); /* scales between 1rem and 1.2rem */
-}
-/* Call-to-action button */
-.cta-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 8px 30px;
-    background-color: #ffa300;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-    font-family: "Roboto", serif;
-}
-
-.cta-btn:hover {
-    background-color: rgba(10, 131, 60, 0.3); 
-    backdrop-filter: blur(15px);
-    font-weight: bolder;
-}
-
-/* Main content takes up the remaining 80% */
-main {
-    margin: 0;
-    padding: 0;
-    flex: 1;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
-
-/* Footer takes 20% of the page height */
-footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 nav a {
     text-align: center;
     text-decoration: none;
@@ -117,7 +38,6 @@ nav a {
 nav li {
     list-style: none;
 }
-
 .dropmenu {
     margin-top: 30px;
     margin-bottom: 0;
@@ -144,48 +64,162 @@ nav li {
     color: #060606;
     border-bottom: 3px solid #060606; /* ✅ single line under the nav */
 }
+.dropmenu a.active {
+    text-decoration: none; /* ✅ remove default underline */
+    color: #060606;
 
+}
+:root {
+    --background: #ffffff;
+    --foreground: oklch(0.145 0 0);
+    --card: #ffffff;
+    --card-foreground: oklch(0.145 0 0);
+    --muted-foreground: #717182;
+    --border: rgba(0, 0, 0, 0.1);
+    --radius: 0.625rem;
+}
 
-/*Atriclces*/
-.articles {
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 16px;
+    background-color: rgb(255, 255, 255);
+    margin: 0;
     padding: 0;
-    margin-top: 0;
     display: flex;
-    flex: 1;
-    padding: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-.profile{
-    width: 200px;
-    margin: 5px;
-    padding: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fffdf9;
+    flex-direction: column;
 }
 
-article img {
-    max-width: 100%;
-    height: auto;
+h1 {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
 }
-.outline1 {
-    font-family: "Montserrat", sans-serif;
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 0.25rem;
+}
+
+p {
+    font-size: 1rem;
     font-weight: 400;
-    text-align: center;
-    text-decoration: none;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    padding: 0;
+    line-height: 1.5;
 }
-.navigate {
-    text-decoration: none;
-    color: rgb(23, 22, 22);
-    text-align: center;
+.header h1 {
+    font-family: "Montserrat", sans-serif;
+}
+.container {
+    max-width: 1536px;
+    margin-top: 70px;
+    padding: 3rem 1rem; 
 }
 
-@media screen and (max-width: 1000px) {
+.max-w-6xl {
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    color: var(--muted-foreground);
+}
+
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Card Styles */
+.card {
+    background-color: var(--card);
+    color: var(--card-foreground);
+    border-radius: calc(var(--radius) + 4px);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    max-width: 56rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.card-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    display: block;
+}
+
+.image-label {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content > div:first-child {
+    margin-bottom: 0.75rem;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--muted-foreground);
+}
+
+.location svg {
+    width: 1rem;
+    height: 1rem;
+}
+
+.bio {
+    color: var(--muted-foreground);
+}
+/* Footer takes 20% of the page height */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width: 1000px) {
+    .card-images {
+        grid-template-columns: 1fr;
+    }
     .navbar .links {
         display: flex;
         gap: 2rem;

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <header class="navbar">
+        <h1>M Haimovitch Restoration
+        </h1>
+        <nav class="dropmenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Projects">About</a></li>
+            <li><a href="project.html">Projects</a></li>
+            <li><a href="Mentorship">Mentorship</a></li>
+            <li><a href="contact.html" class="active">Contact </a></li>
+        </nav>
+        <div class="toggle-btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </header>
+    <div class="page-container">
+        <div class="container">
+            <div class="max-width-wrapper">
+                <!-- Header -->
+                <div class="header">
+                    <h1>Contact Us</h1>
+                    <p class="header-subtitle">
+                        We're here to help and answer any questions you might have
+                    </p>
+                </div>
+
+                <!-- Main Content -->
+                <div class="content-grid">
+                    <!-- Contact Info Section -->
+                    <div class="info-section">
+                        <div class="contact-info">
+                            <div class="info-header">
+                                <h2>Get in Touch</h2>
+                                <p class="muted-text">
+                                    Have a question or want to work together? We'd love to hear from you.
+                                    Fill out the form and we'll get back to you as soon as possible.
+                                </p>
+                            </div>
+
+                            <div class="info-items">
+                                <div class="info-item">
+                                    <div class="icon-wrapper">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Email</h4>
+                                        <p class="muted-text">contact@example.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="info-item">
+                                    <div class="icon-wrapper">
+                                        <i class="fas fa-phone"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Phone</h4>
+                                        <p class="muted-text">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="icon-wrapper">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Instagram</h4>
+                                        <p class="muted-text">
+                                            instagram.com
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="icon-wrapper">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="info-content">
+                                        <h4>Office</h4>
+                                        <p class="muted-text">
+                                            123 Business Street<br>
+                                            San Francisco, CA 94105
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Section -->
+                    <div class="form-section">
+                        <div class="card">
+                            <form id="contactForm" class="contact-form">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input 
+                                        type="text" 
+                                        id="name" 
+                                        name="name" 
+                                        placeholder="Your name" 
+                                        required
+                                    >
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input 
+                                        type="email" 
+                                        id="email" 
+                                        name="email" 
+                                        placeholder="your.email@example.com" 
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="subject">Subject</label>
+                                    <input 
+                                        type="text" 
+                                        id="subject" 
+                                        name="subject" 
+                                        placeholder="How can we help?" 
+                                        required
+                                    >
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea 
+                                        id="message" 
+                                        name="message" 
+                                        rows="6" 
+                                        placeholder="Tell us more about your inquiry..." 
+                                        required
+                                    ></textarea>
+                                </div>
+                                <button type="submit" class="submit-button">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span>Message sent successfully! We'll get back to you soon.</span>
+    </div>
+    <footer>
+        <div>
+            <p>&copy; 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+    <script>
+        const toggleBtn = document.querySelector('.toggle-btn');
+        const toggleIcon = document.querySelector('.toggle-btn i');
+        const dropMenu = document.querySelector('.dropmenu');
+
+        toggleBtn.onclick = function () {
+        dropMenu.classList.toggle('open');
+        const isOpen = dropMenu.classList.contains('open');
+
+        toggleIcon.className = isOpen
+            ? 'fa-solid fa-xmark'
+            : 'fa-solid fa-bars';
+        }
+    </script>
+
+
+    <script src="contact.js"></script>
+</body>
+</html>
