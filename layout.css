@@ -199,6 +199,7 @@ article img {
         cursor: pointer;
     }
     header {
+        position: fixed;
         background-color: #ffa300;
         color: aliceblue;
         font-family: "Roboto", serif;
@@ -262,7 +263,7 @@ article img {
         display: none;
         position: fixed;
         right: 0;
-        top: 50px;
+        top: 30px;
         width: 150px;
         background-color: rgba(255, 255, 255, 0.3); 
         backdrop-filter: blur(15px);
@@ -275,7 +276,7 @@ article img {
     /* When open */
     .dropmenu.open {
         display: block;
-        height: 320px;
+        height: 160px;
     }
     
     /* Menu items */

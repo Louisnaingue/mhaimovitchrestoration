@@ -306,10 +306,10 @@ footer {
         border-bottom-left-radius: 10px;
     }
     
-    /* When open */
+     /* When open */
     .dropmenu.open {
         display: block;
-        height: 320px;
+        height: 160px;
     }
     
     /* Menu items */
