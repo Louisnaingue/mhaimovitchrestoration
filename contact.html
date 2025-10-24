@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="info-content">
                                         <h4>Email</h4>
-                                        <p class="muted-text">Mhbuyers123@gmail.com</p>
+                                        <p class="muted-text">mhbuyers123@gmail.com</p>
                                     </div>
                                 </a>
               
@@ -112,7 +112,10 @@
                     <!-- Contact Form Section -->
                     <div class="form-section">
                         <div class="card">
-                            <form id="contactForm" class="contact-form">
+                            <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                                <!-- ✅ ADD THIS HIDDEN ACCESS KEY -->
+                                <input type="hidden" name="access_key" value="fe55cbe2-0c1f-4a2b-a1b8-36c62fb8b72e">
+                        
                                 <div class="form-group">
                                     <label for="name">Name</label>
                                     <input 
@@ -158,6 +161,7 @@
                                     <i class="fas fa-paper-plane"></i>
                                     Send Message
                                 </button>
+                            
                             </form>
                         </div>
                     </div>
