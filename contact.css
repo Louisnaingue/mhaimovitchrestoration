@@ -382,6 +382,13 @@ p {
 .toast i {
     font-size: 1.25rem;
 }
+a.info-item {
+    text-decoration: none;
+    color: inherit;
+    display: flex; /* keeps layout */
+    align-items: center;
+}
+
 
 /* Responsive Typography */
 @media (max-width: 900px) {
