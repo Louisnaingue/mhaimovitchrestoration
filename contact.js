@@ -1,33 +1,10 @@
-// Form submission
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-    e.preventDefault();
+const formData = new FormData();
+formData.append("access_key", "28ef737b-7bd1-40cd-b50a-53f4d304b2bf");
+formData.append("name", "John Doe");
+formData.append("email", "john@example.com");
+formData.append("message", "Hello World!");
 
-    const form = e.target;
-    const submitButton = form.querySelector("button[type='submit']");
-    const originalText = submitButton.innerHTML;
-    const formData = new FormData(form);
-
-    try {
-      submitButton.innerHTML = "Sending...";
-      submitButton.disabled = true;
-
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        alert("Message sent successfully!");
-        form.reset();
-      } else {
-        alert("Failed to send message. Please try again.");
-      }
-    } catch (error) {
-      alert("An error occurred. Please try again.");
-    } finally {
-      submitButton.innerHTML = originalText;
-      submitButton.disabled = false;
-    }
-  });
+const response = await fetch("https://api.web3forms.com/submit", {
+  method: "POST",
+  body: formData
+});
