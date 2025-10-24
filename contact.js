@@ -1,35 +1,33 @@
-// Contact form handling
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('contactForm');
-    const toast = document.getElementById('toast');
+// Form submission
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    const form = e.target;
+    const submitButton = form.querySelector("button[type='submit']");
+    const originalText = submitButton.innerHTML;
+    const formData = new FormData(form);
 
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
+    try {
+      submitButton.innerHTML = "Sending...";
+      submitButton.disabled = true;
 
-        // Log form data (in a real application, you would send this to a server)
-        console.log('Form submitted:', formData);
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
 
-        // Show success toast
-        showToast();
+      const result = await response.json();
 
-        // Reset form
+      if (result.success) {
+        alert("Message sent successfully!");
         form.reset();
-    });
-
-    function showToast() {
-        toast.classList.add('show');
-
-        // Hide toast after 3 seconds
-        setTimeout(function() {
-            toast.classList.remove('show');
-        }, 3000);
+      } else {
+        alert("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      alert("An error occurred. Please try again.");
+    } finally {
+      submitButton.innerHTML = originalText;
+      submitButton.disabled = false;
     }
-});
+  });
