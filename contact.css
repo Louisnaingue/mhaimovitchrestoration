@@ -9,6 +9,16 @@ body {
     flex-direction: column;
     
 }
+.outline1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    padding: 0;
+    color: #000000;
+}
 header {
     background-color: #ffa300;
     color: aliceblue;
