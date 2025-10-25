@@ -144,6 +144,10 @@ nav li {
     color: #060606;
     border-bottom: 3px solid #060606; /* ✅ single line under the nav */
 }
+.dropmenu a.active{
+    text-decoration: none; /* ✅ remove default underline */
+    color: #060606;
+}
 
 
 /*Atriclces*/
@@ -172,10 +176,10 @@ article img {
 }
 .outline1 {
     font-family: "Montserrat", sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     text-align: center;
     text-decoration: none;
-    margin-top: 2%;
+    margin-top: 4%;
     margin-bottom: 1%;
     padding: 0;
 }
@@ -184,6 +188,65 @@ article img {
     color: rgb(23, 22, 22);
     text-align: center;
 }
+
+
+.subtitle {
+    font-size: 1rem;
+    color: #6b7280;
+}
+.container {
+    max-width: 900px;          /* keeps layout neat and centered */
+    width: 100%;
+    margin: 0 auto;            /* centers container horizontally */
+    padding: 64px 24px;
+    text-align: center;        /* centers text inside */
+}
+
+/* Make each row centered and evenly spaced */
+.hours-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;       /* centers all the .hours-item rows */
+    gap: 10px;
+}
+
+/* Center each day/time row and give equal spacing */
+.hours-item {
+    width: 80%;                /* creates equal left/right margin inside container */
+    display: flex;
+    justify-content: space-between; /* keep day and time on each side */
+    align-items: center;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #f9fafb; /* light background for clarity */
+}
+
+/* Optional: make the last one clean */
+.hours-item:last-child {
+    border-bottom: none;
+}
+
+/* Text styles */
+.day {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+.time {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.time1 {
+    font-size: 1rem;
+    color: #b40808;
+    font-weight: bold;
+}
+
+
+
 
 @media screen and (max-width: 1000px) {
     .navbar .links {
@@ -315,5 +378,17 @@ article img {
         box-shadow: 2px 1px;
         border-radius: 5px;  
         font-size: small;
+    }
+   
+    
+    .hours-item {
+        padding: 12px 16px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+    
+    .time {
+        font-size: 0.875rem;
     }
 }
