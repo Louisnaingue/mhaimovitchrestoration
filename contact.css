@@ -24,7 +24,7 @@ h1 {
     text-align: center;
     text-decoration: none;
     margin-top: 4%;
-    margin-bottom: 1%;
+    margin-bottom: 4%;
     padding: 0;
     color: #000000;
 }
@@ -391,8 +391,12 @@ a.info-item {
     display: flex; /* keeps layout */
     align-items: center;
 }
-
-
+.sidebar {
+    display: none;
+}
+.menu-btn {
+    display: none;
+}
 @media screen and (max-width: 1000px) {
     .topmenu {
         display: none; /* hide top nav links */

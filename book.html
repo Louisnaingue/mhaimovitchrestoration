@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book an Appointment</title>
+    <link rel="stylesheet" href="book.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Book an Appointment</h1>
+            <p class="subtitle">Fill out the form below to schedule your appointment</p>
+        </div>
+
+        <!-- Success Message (hidden by default) -->
+        <div class="success-card" id="successCard" style="display: none;">
+            <div class="success-content">
+                <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <h2 class="success-title">Appointment Confirmed!</h2>
+                <p class="success-text">We've sent a confirmation email with all the details.</p>
+            </div>
+        </div>
+
+        <!-- Booking Form -->
+       <!-- Booking Form Section -->
+        <div class="card" id="bookingCard">
+            <div class="card-header">
+                <h2 class="card-title">Appointment Details</h2>
+                <p class="card-description">Please provide your information and select a convenient time</p>
+            </div>
+            <div class="card-content">
+                <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Web3Forms Key -->
+                    <input type="hidden" name="access_key" value="e7157a64-c150-4924-84f9-f68b526e1394">
+                    <input type="hidden" name="redirect" value="thankyou.html">
+
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3 class="section-title">Personal Information</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name <span class="required">*</span></label>
+                                <input type="text" id="firstName" name="firstName" placeholder="First" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name <span class="required">*</span></label>
+                                <input type="text" id="lastName" name="lastName" placeholder="Last" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="youremail@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        </div>
+                    </div>
+
+                    <!-- Appointment Details -->
+                    <div class="form-section">
+                        <h3 class="section-title">Appointment Details</h3>
+
+                        <div class="form-group">
+                            <label for="service">Service Type <span class="required">*</span></label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="Project Estimats and Budget Sheets">Project Estimats and Budget Sheets</option>
+                                <option value="Consultation">Consultation</option>
+                                <option value="Q&A Real-Estate">Q&A Real-Estate</option>
+                                <option value="Fix and Flip Mentorship">Fix and Flip Mentorship</option>
+                                <option value="Wholeselling Mentorship">Wholeselling Mentorship</option>
+                                <option value="Project Tour">Project Tour</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="date">Preferred Date <span class="required">*</span></label>
+                                <input type="date" id="date" name="date" required>
+
+
+
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Preferred Time <span class="required">*</span></label>
+                                <select id="time" name="time" required>
+                                    <option value="">Select time</option>
+                                    <option value="09:00 AM">09:00 AM</option>
+                                    <option value="09:30 AM">09:30 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="10:30 AM">10:30 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="11:30 AM">11:30 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="12:30 PM">12:30 PM</option>
+                                    <option value="01:00 PM">01:00 PM</option>
+                                    <option value="01:30 PM">01:30 PM</option>
+                                    <option value="02:00 PM">02:00 PM</option>
+                                    <option value="02:30 PM">02:30 PM</option>
+                                    <option value="03:00 PM">03:00 PM</option>
+                                    <option value="03:30 PM">03:30 PM</option>
+                                    <option value="04:00 PM">04:00 PM</option>
+                                    <option value="04:30 PM">04:30 PM</option>
+                                    <option value="05:00 PM">05:00 PM</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Additional Notes (Optional)</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any specific concerns or information we should know..."></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="submit-button">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Toast Notification -->
+        <div class="toast" id="toast" style="display: none;">
+            <svg class="toast-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Appointment booked successfully!</span>
+        </div>
+
+        <!-- Script to handle submission and toast -->
+        <script>
+            const form = document.getElementById('bookingForm');
+            const toast = document.getElementById('toast');
+            const bookingCard = document.getElementById('bookingCard');
+        
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+        
+                const formData = new FormData(form);
+        
+                // Ensure date and time are sent as strings in proper format
+                // Set minimum date to today
+                const dateInput = document.getElementById('date');
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0');
+                const day = String(today.getDate()).padStart(2, '0');
+                const formattedToday = `${year}-${month}-${day}`;
+
+                dateInput.setAttribute('min', formattedToday);
+                dateInput.value = formattedToday;
+                formData.set('date', dateInput);
+                formData.set('time', timeInput);
+        
+                try {
+                    const response = await fetch(form.action, {
+                        method: form.method,
+                        body: formData
+                    });
+        
+                    if (response.ok) {
+                        // Hide form
+                        bookingCard.style.display = 'none';
+        
+                        // Show toast
+                        toast.style.display = 'flex';
+        
+                        // Optional: hide toast after 3 seconds
+                        setTimeout(() => {
+                            toast.style.display = 'none';
+                        }, 3000);
+                    } else {
+                        alert('There was an error submitting the form. Please try again.');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    alert('Network error. Please try again later.');
+                }
+            });
+        
+            // Optional: Set today's date as default
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').setAttribute('min', today);
+            document.getElementById('date').value = today;
+        </script>
+        
+
+</body>
+</html>
