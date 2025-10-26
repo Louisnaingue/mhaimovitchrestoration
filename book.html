@@ -83,14 +83,6 @@
 
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="date">Preferred Date <span class="required">*</span></label>
-                                <input type="date" id="date" name="date" required>
-
-
-
-                            </div>
-
-                            <div class="form-group">
                                 <label for="time">Preferred Time <span class="required">*</span></label>
                                 <select id="time" name="time" required>
                                     <option value="">Select time</option>
@@ -139,57 +131,55 @@
             const form = document.getElementById('bookingForm');
             const toast = document.getElementById('toast');
             const bookingCard = document.getElementById('bookingCard');
-        
+            const successCard = document.getElementById('successCard');
+            const dateInput = document.getElementById('date');
+            const timeInput = document.getElementById('time');
+            
+            
             form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-        
+            
                 const formData = new FormData(form);
-        
-                // Ensure date and time are sent as strings in proper format
-                // Set minimum date to today
-                const dateInput = document.getElementById('date');
-                const today = new Date();
-                const year = today.getFullYear();
-                const month = String(today.getMonth() + 1).padStart(2, '0');
-                const day = String(today.getDate()).padStart(2, '0');
-                const formattedToday = `${year}-${month}-${day}`;
-
-                dateInput.setAttribute('min', formattedToday);
-                dateInput.value = formattedToday;
-                formData.set('date', dateInput);
-                formData.set('time', timeInput);
-        
+            
+                
+                formData.set('time', timeInput.value);
+            
                 try {
                     const response = await fetch(form.action, {
                         method: form.method,
-                        body: formData
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
                     });
-        
-                    if (response.ok) {
+            
+                    const result = await response.json();
+            
+                    if (response.ok && result.success) {
                         // Hide form
                         bookingCard.style.display = 'none';
-        
+                        // Show success card
+                        successCard.style.display = 'block';
                         // Show toast
                         toast.style.display = 'flex';
-        
-                        // Optional: hide toast after 3 seconds
+            
                         setTimeout(() => {
                             toast.style.display = 'none';
                         }, 3000);
+            
+                        form.reset();
+                        dateInput.value = today; // reset date to today
                     } else {
-                        alert('There was an error submitting the form. Please try again.');
+                        alert(result.message || 'Error submitting form.');
                     }
                 } catch (error) {
                     console.error(error);
                     alert('Network error. Please try again later.');
                 }
             });
-        
-            // Optional: Set today's date as default
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('date').setAttribute('min', today);
-            document.getElementById('date').value = today;
-        </script>
+            </script>
+            
+            
         
 
 </body>
