@@ -23,12 +23,7 @@ header {
     right: 0;
     z-index: 1000;     /* make sure header is above image */
 }
-/* Hide toggle button by default */
-.toggle-btn {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
+
 h1 {
     margin: 0;
     font-size: 2rem;
@@ -174,7 +169,19 @@ article img {
     max-width: 100%;
     height: auto;
 }
+.featured {
+    margin-bottom: 0;
+}
 .outline1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    margin-top: 4%;
+    margin-bottom: 1%;
+    padding: 0;
+}
+.outline2 {
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     text-align: center;
@@ -244,8 +251,6 @@ article img {
     color: #b40808;
     font-weight: bold;
 }
-
-
 
 
 @media screen and (max-width: 1000px) {
@@ -320,26 +325,21 @@ article img {
         font-family: "Roboto", serif;
         font-size: small;
     }
-
-    
     .dropmenu {
         display: none;
         position: fixed;
-        right: 0;
         top: 30px;
-        width: 150px;
-        background-color: rgba(255, 255, 255, 0.3); 
-        backdrop-filter: blur(15px);
-        overflow: hidden;
+        width: 200px;
+        background-color: #ffa300; 
         transition: height 0.3s ease;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
+        
     }
     
     /* When open */
     .dropmenu.open {
         display: block;
-        height: 160px;
+        height: 100%;
+        right: 0;
     }
     
     /* Menu items */
@@ -391,4 +391,26 @@ article img {
     .time {
         font-size: 0.875rem;
     }
+    .hours-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;       /* centers all the .hours-item rows */
+        gap: 10px;
+        margin-right: 10%;
+
+    }
+    .outline2 {
+        margin-right: 10%;
+    }
+    .subtitle {
+        margin-right: 10%;
+        
+    }
+    .container{
+        margin-right: 10%;
+       
+    }
+    
+    
+    
 }

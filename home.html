@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="layout.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,33 +11,79 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+Hebrew:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
-        <h1>M Haimovitch Restoration
-        </h1>
-        <nav class="dropmenu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </nav>
-        <div class="toggle-btn">
-            <i class="fa-solid fa-bars"></i>
+    <div class="container">
+        <header class="navbar">
+            <h1>M Haimovitch Restoration
+            </h1>
+            <button id="menuButton" class="menu-btn">
+                <i id="menuIcon" class="fas fa-bars"></i>
+                <i id="closeIcon" class="fas fa-xmark hidden"></i>
+              </button>
+            <nav class="topmenu">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </nav>                      
+        </header>
+        <div class="afterheader">
+            <img src="images/C1.png" alt="">
+            <div class="overlay-text">
+                <h2>Welcome!</h2>
+                <p>Let’s turn plans into reality</p>
+                <a href="#contact" class="cta-btn">Book Appointment</a>
+            </div>
         </div>
-    </header>
-    <div class="afterheader">
-        <img src="images/C1.png" alt="">
-        <div class="overlay-text">
-            <h2>Welcome!</h2>
-            <p>Let’s turn plans into reality</p>
-            <a href="#contact" class="cta-btn">Book Appointment</a>
-        </div>
+        <!-- Right Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-content">
+                <nav class="dropmenu">
+                    <ul class="nav-list">
+                        <li>
+                            <a href="home.html" class="nav-link">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="about.html" class="nav-link">
+                                <span>About
+                            </a>
+                        </li>
+            
+                        <li>
+                            <a href="project.html" class="nav-link">
+                                <span>Projects</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="services.html" class="nav-link">
+                                <span>Services</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="contact.html" class="nav-link">
+                                <span>Contact</span>
+                            </a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Overlay -->
+        <div class="overlay" id="overlay"></div>
     </div>
     <main>
         <div class="featured">
+            <br>
             <h1 class="outline1">FEATURED PROJECTS</h1>
+            <br>
             <div class="articles">
                 <a class="navigate" href="#">
                     <article class="profile">
@@ -70,9 +115,9 @@
                 </a>
             </div> 
         </div>
-        <div class="container">
+        <div>
             <div>
-                <h1 class="outline1">BUSINESS HOURS</h1>
+                <h1 class="outline2">BUSINESS HOURS</h1>
                 <p class="subtitle">Available time to help you!</p>
             </div>
     
@@ -113,19 +158,33 @@
             <p>&copy; 2025 All Rights Reserved</p>
         </div>
     </footer>
+
     <script>
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const toggleIcon = document.querySelector('.toggle-btn i');
-        const dropMenu = document.querySelector('.dropmenu');
-
-        toggleBtn.onclick = function () {
-        dropMenu.classList.toggle('open');
-        const isOpen = dropMenu.classList.contains('open');
-
-        toggleIcon.className = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars';
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+      
+        function toggleSidebar() {
+          const isOpen = sidebar.classList.contains('open');
+      
+          if (isOpen) {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          } else {
+            sidebar.classList.add('open');
+            overlay.classList.add('show');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
         }
-    </script>
+      
+        menuButton.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
+      </script>
+      
 </body>
 </html>

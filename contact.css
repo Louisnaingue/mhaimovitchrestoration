@@ -23,7 +23,7 @@ h1 {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    margin-top: 2%;
+    margin-top: 4%;
     margin-bottom: 1%;
     padding: 0;
     color: #000000;
@@ -62,12 +62,8 @@ nav a {
 nav li {
     list-style: none;
 }
-.toggle-btn {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-.dropmenu {
+
+.topmenu {
     margin-top: 30px;
     margin-bottom: 0;
     margin-right: 30px;
@@ -76,12 +72,12 @@ nav li {
     gap: 10px;
 }
 
-.dropmenu li {
+.topmenu li {
     font-size: large;
     
 }
 
-.dropmenu a {
+.topmenu a {
     padding: 10px;
     color: white;
     font-family: "Montserrat", sans-serif;
@@ -89,12 +85,12 @@ nav li {
     font-weight: 500;
 }
 
-.dropmenu a:hover {
+.topmenu a:hover {
     text-decoration: none; /* ✅ remove default underline */
     color: #060606;
     border-bottom: 3px solid #060606; /* ✅ single line under the nav */
 }
-.dropmenu a.active{
+.topmenu a.active{
     text-decoration: none; /* ✅ remove default underline */
     color: #060606;
 }
@@ -397,28 +393,112 @@ a.info-item {
 }
 
 
-/* Responsive Typography */
-@media (max-width: 900px) {
-    h1 {
-        font-size: 1.875rem;
+@media screen and (max-width: 1000px) {
+    .topmenu {
+        display: none; /* hide top nav links */
+    }
+    .menu-btn {
+        display: block; /* show the hamburger button */
     }
     
-    h2 {
-        font-size: 1.5rem;
+    .sidebar {
+        display: block; /* sidebar becomes functional */
     }
-    .navbar .links {
-        display: flex;
-        gap: 2rem;
-    }
-    .toggle-btn {
-        display: block;
-    }
-    .navbar .toggle-btn {
+
+    .menu-btn {
+        background: none;
+        border: none;
+        outline: none;
         color: white;
-        font-size: 2rem;
+        font-size: 1.8rem;
         cursor: pointer;
+      }
+    .menu-btn i.hidden {
+        display: none;
+    }
+   
+      
+    
+    .menu-button:hover {
+        background-color: #e5e7eb;
+    }
+    
+    .menu-button .icon {
+        width: 24px;
+        height: 24px;
+        color: #374151;
+        border: none;
+    }
+
+    /* Right Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        height: 100%;
+        width: 45%;
+        max-width: 320px;
+        background-color: #ffa300;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 40;
+        overflow-y: auto;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .sidebar-content {
+        padding: 10px;
+    }
+    
+    
+    /* Navigation List */
+    .nav-list {
+        list-style: none;
+    }
+    
+    .nav-list li {
+        margin-bottom: 4px;
+    }
+    
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0 10px 8px; /* less space on left */
+        border-radius: 8px;
+        color: #000000;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        font-size: large;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+    }
+    
+    
+    .nav-link:hover {
+        background-color: #f3f4f6;
+    }
+    
+    /* Overlay */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 30;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .overlay.show {
+        opacity: 1;
+        pointer-events: auto;
     }
     header {
+        position: fixed;
         background-color: #ffa300;
         color: aliceblue;
         font-family: "Roboto", serif;
@@ -427,112 +507,16 @@ a.info-item {
         justify-content: space-between;/* puts h1 on left, button on right */
         padding: 0 20px;
         height: 60px;                  /* example fixed header height */
+        
     }
     h1 {
         font-size: large;
-    }   
-    .afterheader {
-        margin-top: 60px;  /* push image below fixed header */
     }
-    
-    .afterheader img {
-        width: 100%;
-        height: 70%;
-        display: block;
-    } 
-    .overlay-text {
-        padding: 15px;
+    .outline1 {
+        padding-top: 20px;
+        margin-bottom: 1.5rem;
+        
     }
-    .overlay-text {
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        color: white;
-        text-align: center;
-        background-color: rgba(0,0,0,0.4); /* semi-transparent background */
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 90%; /* prevents text from going too wide */
-    }
-
-    .overlay-text h2 {
-        margin: 0;
-        font-size: 20px;
-    }
-    .overlay-text p {
-        margin: 5px 0 0 0;
-        font-size: 15px;
-    }.cta-btn {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 8px 30px;
-        background-color: #ffa300;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-        font-family: "Roboto", serif;
-        font-size: small;
-    }
-
-    
-    .dropmenu {
-        display: none;
-        position: fixed;
-        right: 0;
-        top: 50px;
-        width: 150px;
-        background-color: rgba(255, 255, 255, 0.3); 
-        backdrop-filter: blur(15px);
-        overflow: hidden;
-        transition: height 0.3s ease;
-        border-bottom-right-radius: 10px;
-        border-bottom-left-radius: 10px;
-    }
-    
-     /* When open */
-    .dropmenu.open {
-        display: block;
-        height: 160px;
-    }
-    
-    /* Menu items */
-    .dropmenu li {
-        padding: 5px;
-        display: flex;
-        font-size: small;
-    }
-    .dropmenu ul {
-        padding: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;       
-        text-align: center;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        font-family: sans-serif;
-        font-size: small;
-    }
-    .dropmenu a:hover {
-        background-color: rgb(223, 172, 19); /* change background color on hover */
-        color: white;                       /* change text color on hover */
-        transform: scale(1.05);             /* slightly enlarge the box */
-        transition: all 0.3s ease;          /* smooth animation */
-        box-shadow: 2px 2px 5px rgba(0,0,0,0.3); /* add shadow */
-    }
-
-    .dropmenu a {
-        color: rgb(0, 0, 0); border: 1px solid black;    /* box border */
-        background-color: #ffffff;  /* light background */
-        color: rgb(12, 12, 12);               /* text color */
-        padding: 1px;              /* space inside the box */
-        margin: 0;              /* space between boxes */ 
-        width: 180px;
-        box-shadow: 2px 1px;
-        border-radius: 5px;  
-        font-size: small;
-    }
+  
+ 
 }

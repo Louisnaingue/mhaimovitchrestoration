@@ -74,7 +74,7 @@ nav li {
     list-style: none;
 }
 
-.dropmenu {
+.topmenu {
     margin-top: 30px;
     margin-bottom: 0;
     margin-right: 30px;
@@ -83,11 +83,11 @@ nav li {
     gap: 10px;
 }
 
-.dropmenu li {
+.topmenu li {
     font-size: large;
 }
 
-.dropmenu a {
+.topmenu a {
     padding: 10px;
     color: white;
     font-family: "Montserrat", sans-serif;
@@ -95,12 +95,21 @@ nav li {
     font-weight: 500;
 }
 
-.dropmenu a:hover {
+.topmenu a:hover {
     text-decoration: none; /* ✅ remove default underline */
     color: #060606;
     border-bottom: 3px solid #060606; /* ✅ single line under the nav */
 }
-
+.topmenu a.active{
+    text-decoration: none; /* ✅ remove default underline */
+    color: #060606;
+}
+.sidebar {
+    display: none;
+}
+.menu-btn {
+    display: none;
+}
 /* ✅ Removed stray "s" at the end of this rule */
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
@@ -201,6 +210,10 @@ body {
         padding-left: 2rem;
         padding-right: 2rem;
     }
+    .menu-btn i.hidden {
+        display: none;
+    }
+   
 }
 
 .pricing-container {
@@ -491,4 +504,124 @@ body {
 
 .footer-content p {
     font-size: 0.875rem;
+}
+@media screen and (max-width: 1000px) {
+    .topmenu {
+        display: none; /* hide top nav links */
+    }
+    .menu-btn {
+        display: block; /* show the hamburger button */
+    }
+    
+    .sidebar {
+        display: block; /* sidebar becomes functional */
+    }
+
+    .menu-btn {
+        background: none;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 1.8rem;
+        cursor: pointer;
+      }
+    .menu-btn i.hidden {
+        display: none;
+    }
+   
+      
+    
+    .menu-button:hover {
+        background-color: #e5e7eb;
+    }
+    
+    .menu-button .icon {
+        width: 24px;
+        height: 24px;
+        color: #374151;
+        border: none;
+    }
+
+    /* Right Sidebar */
+    .sidebar {
+        position: fixed;
+        top: 60px;
+        right: 0;
+        height: 100%;
+        width: 45%;
+        max-width: 320px;
+        background-color: #ffa300;
+        box-shadow: -2px 0 8px rgba(0, 0, 0, 0.15);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        z-index: 40;
+        overflow-y: auto;
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .sidebar-content {
+        padding: 10px;
+    }
+    
+    
+    /* Navigation List */
+    .nav-list {
+        list-style: none;
+    }
+    
+    .nav-list li {
+        margin-bottom: 4px;
+    }
+    
+    .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 10px 0 10px 8px; /* less space on left */
+        border-radius: 8px;
+        color: #000000;
+        text-decoration: none;
+        transition: background-color 0.2s;
+        font-size: large;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 500;
+    }
+    
+    
+    .nav-link:hover {
+        background-color: #f3f4f6;
+    }
+    
+    /* Overlay */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 30;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    .overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    header {
+        position: fixed;
+        background-color: #ffa300;
+        color: aliceblue;
+        font-family: "Roboto", serif;
+        display: flex;                 /* places h1 and button side by side */
+        align-items: center;           /* vertically align them */
+        justify-content: space-between;/* puts h1 on left, button on right */
+        padding: 0 20px;
+        height: 60px;                  /* example fixed header height */
+        
+    }
+    h1 {
+        font-size: large;
+    }
 }

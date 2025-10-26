@@ -17,17 +17,57 @@
     <header class="navbar">
         <h1>M Haimovitch Restoration
         </h1>
-        <nav class="dropmenu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
+        <button id="menuButton" class="menu-btn">
+            <i id="menuIcon" class="fas fa-bars"></i>
+            <i id="closeIcon" class="fas fa-xmark hidden"></i>
+            </button>
+        <nav class="topmenu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
             <li><a href="project.html">Projects</a></li>
-            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="services.html">Services</a></li>
             <li><a href="contact.html">Contact</a></li>
-        </nav>
-        <div class="toggle-btn">
-            <i class="fa-solid fa-bars"></i>
-        </div>
+        </nav>                      
     </header>
+    <!-- Right Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <nav class="dropmenu">
+                <ul class="nav-list">
+                    <li>
+                        <a href="home.html" class="nav-link">
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="nav-link">
+                            <span>About
+                        </a>
+                    </li>
+        
+                    <li>
+                        <a href="project.html" class="nav-link">
+                            <span>Projects</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="services.html" class="nav-link">
+                            <span>Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="contact.html" class="nav-link">
+                            <span>Contact</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
     <main>
         <div class="page-wrapper">
             <!-- Hero Section -->
@@ -437,18 +477,30 @@
         </div>
     </footer>
     <script>
-        const toggleBtn = document.querySelector('.toggle-btn');
-        const toggleIcon = document.querySelector('.toggle-btn i');
-        const dropMenu = document.querySelector('.dropmenu');
-
-        toggleBtn.onclick = function () {
-        dropMenu.classList.toggle('open');
-        const isOpen = dropMenu.classList.contains('open');
-
-        toggleIcon.className = isOpen
-            ? 'fa-solid fa-xmark'
-            : 'fa-solid fa-bars';
+        const menuButton = document.getElementById('menuButton');
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('overlay');
+        const menuIcon = document.getElementById('menuIcon');
+        const closeIcon = document.getElementById('closeIcon');
+      
+        function toggleSidebar() {
+          const isOpen = sidebar.classList.contains('open');
+      
+          if (isOpen) {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('show');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          } else {
+            sidebar.classList.add('open');
+            overlay.classList.add('show');
+            menuIcon.classList.add('hidden');
+            closeIcon.classList.remove('hidden');
+          }
         }
+      
+        menuButton.addEventListener('click', toggleSidebar);
+        overlay.addEventListener('click', toggleSidebar);
     </script>
 </body>
 </html>
